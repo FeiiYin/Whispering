@@ -20,7 +20,7 @@ https://zhuanlan.zhihu.com/p/55238865
 
 隐变量 latent variable  观测不到但能影响结果或是模型参数的变量 https://blog.csdn.net/Ding_xiaofei/article/details/80207084
 
-最大熵 ： $P(w_3 | w_2, w_1, subject)=\frac {e^{(lambda_1(w_1,w_2,w_3)+lambda_2(w_3,subject)}}{(Z(w_1,w_2,subject))}$
+最大熵 ： $ P(w_3 | w_2, w_1, subject)=\frac_{e^{(lambda_1(w_1,w_2,w_3)+lambda_2(w_3,subject)}}{(Z(w_1,w_2,subject))} $
 
 + EM算法 最大期望算法（Expectation-Maximization algorithm, EM）
 

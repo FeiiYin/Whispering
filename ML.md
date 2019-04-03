@@ -12,6 +12,22 @@ https://zhuanlan.zhihu.com/p/53682800
 
 https://zhuanlan.zhihu.com/p/55238865
 
+贝叶斯网络 ： https://www.cnblogs.com/ironstark/p/5087081.html
+
+贝叶斯链式法则 = = 
+
+高斯分布 == 正态分布 GMM 高斯混合模型 (待看)
+
+隐变量 latent variable  观测不到但能影响结果或是模型参数的变量 https://blog.csdn.net/Ding_xiaofei/article/details/80207084
+
+最大熵 ： $P(w_3 | w_2, w_1, subject)=\frac {e^{(lambda_1(w_1,w_2,w_3)+lambda_2(w_3,subject)}}{(Z(w_1,w_2,subject))}$
+
++ EM算法 最大期望算法（Expectation-Maximization algorithm, EM）
+
+初始化答案参数或隐变量，极大似然估计出模型参数，再用此时模型极大似然估计出隐变量，初始与最后估计相近收敛（估计的时候用概率）
+
+https://www.jianshu.com/p/1121509ac1dc
+
 + 最大似然估计
 
 https://zhuanlan.zhihu.com/p/26614750
@@ -26,6 +42,12 @@ https://blog.csdn.net/baimafujinji/article/details/51297802
 
 插值：Pinterp(wn|wn−2,wn−1)=λ1P(wn)+λ2P(wn|wn−1)+λ3P(wn|wn−2,wn−1)
 
++ 上采样 & 下采样
+
+上采样：利用插值放大图像； 下采样，直接取区域内的平均像素值，缩小图像；
+
+https://blog.csdn.net/stf1065716904/article/details/78450997
+
 + 协方差矩阵
 
 + BPE
@@ -35,5 +57,9 @@ https://blog.csdn.net/baimafujinji/article/details/51297802
 + c-bow
 
 + softmax
+
++ markdown 公式
+
+https://blog.csdn.net/lihaoweicsdn/article/details/83895143
 
 + i am vegitable

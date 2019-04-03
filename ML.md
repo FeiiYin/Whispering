@@ -20,7 +20,15 @@ https://zhuanlan.zhihu.com/p/55238865
 
 隐变量 latent variable  观测不到但能影响结果或是模型参数的变量 https://blog.csdn.net/Ding_xiaofei/article/details/80207084
 
-最大熵 ： $ P(w_3 | w_2, w_1, subject)=\frac_{e^{(lambda_1(w_1,w_2,w_3)+lambda_2(w_3,subject)}}{(Z(w_1,w_2,subject))} $
+最大熵 ： $P(w_3 | w_2, w_1, subject)=\frac_{e^{(lambda_1(w_1,w_2,w_3)+lambda_2(w_3,subject)}}{(Z(w_1,w_2,subject))}$
+
+HMM https://www.cnblogs.com/skyme/p/4651331.html  关于路径选取，取路径概率（乘积）最大，关于模型隐变量选取，取求和概率最大
+
+每一个HMM模型都等价于某个CRF,相当于是前面的参数为1，并且HMM中是事件之间相互独立的，转移概率来推动时间变化，CRF中用特征函数来监督时间
+
+Viterbi algorithm
+
+CRF 条件随机场 https://www.imooc.com/article/27795   特征函数集合，求值后 进行归一化乘权重求和，是逻辑回归的序列化版本
 
 + EM算法 最大期望算法（Expectation-Maximization algorithm, EM）
 

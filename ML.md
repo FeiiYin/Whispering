@@ -56,6 +56,12 @@ https://blog.csdn.net/baimafujinji/article/details/51297802
 
 https://blog.csdn.net/stf1065716904/article/details/78450997
 
++ TF-IDF
+
+词频-逆文档频率, log(tot/cor + 1) : 提取关键词->关键词向量，找相似文章->通过关键词的簇，提取文章摘要
+
+https://www.cnblogs.com/cppb/p/5976266.html
+
 + 协方差矩阵
 
 + BPE

@@ -18,7 +18,7 @@ skip-gram：定义一个概率分布，给定一个中心词汇，某个单词�
 
 连乘 \Pai
 
-$ j (i) =  $  \prod_position $ $  \prod_{-r to r} $ P (w_t|w_j) $
+$ j (i) = \prod_position  \prod_{-r to r} P (w_t|w_j) $
 
 
 

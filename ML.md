@@ -1,5 +1,27 @@
 ## NLP
 
++ word2vec : https://www.bilibili.com/video/av41393758/?p=2
+
+english - wordNet 语言的分类信息，像个python的词典库，可以做校验
+
+one-hot [0 1 0 ... 0 ]
+
+distribution similarity 通过上下文获取一个词的大量的值，关于词汇语义
+
+计算word2vec
+
+损失函数：本质让每个词向量能够预测其周围的词汇，反之亦然（vice versa）
+
+$ w_-t $ 上下文除了t的词
+
+skip-gram：定义一个概率分布，给定一个中心词汇，某个单词在它上下文中出现的概率
+
+连乘 \Pai
+
+$ j (i) =  $  \prod_position $ $  \prod_{-r to r} $ P (w_t|w_j) $
+
+
+
 + attention & self attention & transformer
 
 can be described as mapping a query and a set of key-value pairs to an output

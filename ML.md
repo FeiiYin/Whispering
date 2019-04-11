@@ -18,8 +18,11 @@ skip-gram：定义一个概率分布，给定一个中心词汇，某个单词�
 
 连乘 \Pai
 
-$ j (i) = \prod_position  \prod_{-r to r} P (w_t|w_j) $
+$ j (i) = \prod_{position}  \prod_{-r to r} P (w_t|w_j) $
 
+取log 转为求和 -> 每个词的概率乘积 to 每个词预测概率log取平均 归一化处理
+
+当求一个词的概率时 softmax 一下 $ P(objective|center_word) = \frac{exp(u_o^t * v_c)}{\sum{exp(u_w^t * v_c)}} $
 
 
 + attention & self attention & transformer

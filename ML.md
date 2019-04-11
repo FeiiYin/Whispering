@@ -24,6 +24,14 @@ $ j (i) = \prod_{position}  \prod_{-r to r} P (w_t|w_j) $
 
 当求一个词的概率时 softmax 一下 $ P(objective|center_word) = \frac{exp(u_o^t * v_c)}{\sum{exp(u_w^t * v_c)}} $
 
+v时中心词 vec，u时预测词 vec
+
+每个词有2个词向量，???  center word （one hot * matrix）, context(word2vec)
+
+只关注词义，词的位置可以忽视，即距离中心词的距离
+
+两个词越相似，点积越大
+
 
 + attention & self attention & transformer
 

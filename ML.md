@@ -26,19 +26,37 @@ $ j (i) = \prod_{position}  \prod_{-r to r} P (w_t|w_j) $
 
 v时中心词 vec，u时预测词 vec
 
-每个词有2个词向量，是为了计算方便，作为center一种，上下文 时是另一种，二者相互独立  
+每个词有2个词向量，是为了计算方便，作为center一种，上下文 时是另一种，二者相互独立  ，并且可能出现了这个词的center，上下文不会出现同一个词，如果一样的话，点积概率最大
 
 center word （one hot * matrix）, context(word2vec)
 
 只关注词义，词的位置可以忽视，即距离中心词的距离
 
-两个词越相似，点积越大
+两个词越相似，点积越大 (如果用余弦函数去算的话会更好，但是更难算)
+ 
+$ J(\sita) = log (\frac {exp(u_0^T*v_c)}{\sum{exp(u_w^T*v_c)}}) $
+
+求梯度时，求偏导，然后 log 展开成减法，log，e约掉，左边为$u_0$，右边用链式法则，后面求和符号换序，再exp的链式法则，发现后面的系数刚好是softmax里计算的概率 p(x|center)
+
+化简得 $ 偏导 (\sita) = u_0 - \sum{P(x|c)u_x} $ 前面是观察值，后面是期望向量
+
+链式法则 对 f(g(u)) 求导， 对f, g分别求导
+
++ SGD （stochastic gradient descent）
+
+如果在训练word2vec中的话，随机选取一个位置，学习到的梯度直接用于计算下一个的梯度，而不是全算完在更新
 
 + 句子 向量
 
 + 词袋 bag-of-words BoW
 
 一个句子 = 词汇 词向量的加权平均值   $ V_{sentence} = \frac{1}{|sentence-word-number|}\sum{\frac{a}{a+p(w)}v_w} $ a 是常数，p(w)是词出现的频率
+
+（log likelihood 对数似然）
+
+论文 ： A Simple but Tough-to-beat Baseline for sentence embeddings
+
+计算第一部分的主成分，再减去第一部分的投影 这部分参考PCA 主成分分析算法， 一个词的概率 与 词的出现频率，词与句子之间的关联程度
 
 + attention & self attention & transformer
 

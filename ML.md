@@ -26,12 +26,19 @@ $ j (i) = \prod_{position}  \prod_{-r to r} P (w_t|w_j) $
 
 v时中心词 vec，u时预测词 vec
 
-每个词有2个词向量，???  center word （one hot * matrix）, context(word2vec)
+每个词有2个词向量，是为了计算方便，作为center一种，上下文 时是另一种，二者相互独立  
+
+center word （one hot * matrix）, context(word2vec)
 
 只关注词义，词的位置可以忽视，即距离中心词的距离
 
 两个词越相似，点积越大
 
++ 句子 向量
+
++ 词袋 bag-of-words BoW
+
+一个句子 = 词汇 词向量的加权平均值   $ V_sentence = \frac{1}{|sentence word number|}\sum{\frac{a}{a+p(w)}v_w} $ a 是常数，p(w)是词出现的频率
 
 + attention & self attention & transformer
 

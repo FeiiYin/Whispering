@@ -34,11 +34,11 @@ center word （one hot * matrix）, context(word2vec)
 
 两个词越相似，点积越大 (如果用余弦函数去算的话会更好，但是更难算)
  
-$ J(\sita) = log (\frac {exp(u_0^T*v_c)}{\sum{exp(u_w^T*v_c)}}) $
+$ J(sita) = log (\frac {exp(u_0^T*v_c)}{\sum{exp(u_w^T*v_c)}}) $
 
 求梯度时，求偏导，然后 log 展开成减法，log，e约掉，左边为$u_0$，右边用链式法则，后面求和符号换序，再exp的链式法则，发现后面的系数刚好是softmax里计算的概率 p(x|center)
 
-化简得 $ 偏导 (\sita) = u_0 - \sum{P(x|c)u_x} $ 前面是观察值，后面是期望向量
+化简得 偏导 $  J(sita) = u_0 - \sum{P(x|c)u_x} $ 前面是观察值，后面是期望向量
 
 链式法则 对 f(g(u)) 求导， 对f, g分别求导
 
@@ -78,7 +78,7 @@ https://zhuanlan.zhihu.com/p/55238865
 
 隐变量 latent variable  观测不到但能影响结果或是模型参数的变量 https://blog.csdn.net/Ding_xiaofei/article/details/80207084
 
-最大熵 ： $P(w_3 | w_2, w_1, subject)=\frac_{e^{(lambda_1(w_1,w_2,w_3)+lambda_2(w_3,subject)}}{(Z(w_1,w_2,subject))}$
+最大熵 ： $P(w_3 | w_2, w_1, subject)= \frac{e^{(lambda_1(w_1,w_2,w_3)+lambda_2(w_3,subject)}}{(Z(w_1,w_2,subject))}$
 
 HMM https://www.cnblogs.com/skyme/p/4651331.html  关于路径选取，取路径概率（乘积）最大，关于模型隐变量选取，取求和概率最大
 

@@ -54,7 +54,17 @@ PCA可视化 可以将词向量变成二维的图片
 
 本质目的 获取词的共同点，这个词和其他词共同出现的概率时多少
 
-不用梯度下降，只统计词频，（a在b后出现了多少次）这会生成一个系数矩阵，他的长宽是词表的大小，通过SVD（奇异值分解）降维
+co-occurence & SVD 方法，不用梯度下降，只统计词频，（a在b后出现了多少次）这会生成一个系数矩阵，他的长宽是词表的大小，通过SVD（奇异值分解）降维。但是这个方法主要获取词之间的相似性，不能获取其他pattern。通常skip-gram better
+
+Glove vector方法，相当于是结合了两种训练的方法，在反向的函数中涉及到两块的矩阵
+
+最后center vector 和context vector可以连接起来，或sum up（效果更好）
+
+第三集的TA：多义词的vector是他在各个意义的vector的线性叠加，可以通过稀疏编码来对其进行语义解释
+
+一种内在的评价方法：类比，比如 取余弦距离最近（男人-女人+国王）= 皇后，不仅包含语义，语法的关系也有类比。
+
+另一种是对下游的模型训练再比较，如NMT，NER
 
 + SVD
 
@@ -82,15 +92,15 @@ KPCA 由于数据可能不是线性，不能直接投影，用核函数将其映
 
 $ COV(X, Y) = E[(X-E(X))(Y-E(Y))] = E[XY]-E[X]E[Y] $ 二者相互独立的话协方差为0
 
+注意这里求协方差矩阵一般是 用样本方差（除n-1），而不用总体方差（除n），因为自己的数据往往不会是全部数据
+
+样本方差和总体方差的区别：https://blog.csdn.net/hearthougan/article/details/77859173
+
 + sigmoid 
 
 激活函数  $ J(x) = \frac{1}{1+e^{-x}} $  把实数映射到0和1之间 转成概率
 
 有 $ J(-x) = 1 - J(x) $ 概率转化
-
-注意这里求协方差矩阵一般是 用样本方差（除n-1），而不用总体方差（除n），因为自己的数据往往不会是全部数据
-
-样本方差和总体方差的区别：https://blog.csdn.net/hearthougan/article/details/77859173
 
 + SGD （stochastic gradient descent）
 
@@ -181,6 +191,12 @@ https://www.cnblogs.com/cppb/p/5976266.html
 + c-bow
 
 + softmax
+
+loss for softmax：通常是cross-entropy
+
+https://www.jianshu.com/p/695136c5647b 
+
+TODO！
 
 + markdown 公式
 

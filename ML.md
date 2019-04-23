@@ -196,11 +196,19 @@ loss for softmax：通常是cross-entropy
 
 交叉熵：$ H(p, q) = -\sum{p(c)log q(c)} $ p(c) 是真实概率（one-hot向量，只取正确的），q(c)是预估概率，即softmax计算得到的，然后最小化该式
 
-对于所有数据来说 $ J(sita) = \frac{1}{N}\sum{-log(softmax(f))} $ 最小化该值
+对于所有数据来说 $ J(sita) = \frac{1}{N}\sum{-log(softmax(f))} $  $ f = W*x $最小化该值, W是softmax的参数
+
+ $ J(sita) = \frac{1}{N}\sum{-log(softmax(f))}+\lambda\sum{\theta_k^2} $ 后面的偏置使参数能够减小，防止参数过大，过拟合
 
 https://www.jianshu.com/p/695136c5647b 
 
 TODO！
+
++ sigmoid 
+
+$ sigmoid(z) = \frac{1}{1+e^{-z}} $
+
+如果只是线性函数的叠加， 
 
 + markdown 公式
 

@@ -10,7 +10,7 @@ redis
 
 阿帕奇active message queue（性能差的系统不能直接调用，建立一个单独系统*队列）
 
----
+------
 
 流行技术
 
@@ -20,9 +20,7 @@ redis
 
 
 
-```c++
-dp[i][j]=min(max(dp[t][j-1],sum(a[t+1]~a[i]))
-```
+
 
 
 
@@ -58,9 +56,114 @@ spring是管理java的bin（类对象）的，创建，销毁，调用由spring�
 
 
 
+#### IoC
+
+- bean作用域（创建类方式与生命周期）
+
+  单例：`<bean id="userDao" class="com.ioc.UserDaoImpl" scope="singleton"/>`
+
+  原型，每次实例化一个`scope="prototype"·`
+
+
+
+- 注解`@component` 让spring把其视为管理的bean
+
+  xml配置文件
+
+  `<context:component-scan base-package="...">< /context:component-scan>``
+
+- 自动装载 ``@autowired`，把类里的别的类上声明，测试类也要
+
+  `@autowired(required=false)`找不到不抛异常
+
+  基本数据类型不是bean，不能装载，包括String
+
+- `@qualifier("..")`用名字装配，填写component后面的名字，通常用不上
+
+- `@configuration`加载framework提供功能时使用，或者`@bean`手动提供new的类，安全过滤器使用
+
+
+依赖注入是通过ioc来实现的
+
+
+
+#### AOP
+
+重复代码写一次
+
+切面类`@Component @Aspect`,方法前面加`@Before("excution(* package.class.*(..))")`
+
+持久化层上加处理
+
+```Java
+Logger log = Logger.getLogger(Advice.class);
+
+@Before("excution(* package.class.*(..))")
+(JointPoint joinPoint) { // 支持就给你赋值，参数可以不添加
+    log.info(joinPoint.getSignature().getName());
+    // 获得参数
+    log.info(joinPoint.getArgs()[0].toString());
+}
+
+@After("excution(* package.class.*(..))")
+
+// 环绕
+@Around("excution(* package.class.*(..))")
+public void circle(ProceedingJoinPoint proceedingJoinPoint) {
+    log.info(proceedingJoinPoint.getSignature().getName());
+    Object o;
+    try { // have to be done 
+        o = proceedingJoinPoint.proceed(proceedingJoinPoint.getArgs());
+    } catch(Throwable throwable) {
+        
+    }
+    // after
+    log.info(o.toString());
+    return o;
+} 
+
+// 
+@AfterReturning(value = "excution(* package.class.*(..))", returning = "o")
+public Object afterReturn(Object o) {
+	log.info(o.toString());
+    return o;
+}
+
+@AfterThrowing(value = "excution(* package.class.*(..))", throwing = "e")
+public void afterThrowing(Exception e) {
+    log.info(e.getMessage());
+}
+
+// (..) -> ((int), (int))
+// (..) -> (.User*.insert*((int), (int)))
+p1 = b/(b+w),  (b+d)/(b+w+d)
+    
+<aop:aspect-autoproxy proxy-target-class="true">
+```
+
+切点：注解（@before..）
+
+
+
+#### 库
+
+log4j：rootLogger输出级别，DEBUG，INFO，WARNING，ERROR，由高到低，选择性输出，输出到文件
+
+
+
+#### 测试
+
+测试类和框架一起运行`@runWith(SpringJUNIT4ClassRunner.class)`
+
+配置文件`@ContextConfiguration(locations = "classpath:applicationContext.xml")`
+
+
+
+
+
 ## xml
 
-<![CDATA[]]>  中间可以还原&<>
+`<![CDATA[]]> ` 中间可以还原&<>
 
 
 

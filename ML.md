@@ -128,6 +128,8 @@ https://www.cnblogs.com/robert-dlut/p/8638283.html
 
 https://zhuanlan.zhihu.com/p/53682800
 
+这篇很全很清楚   https://blog.csdn.net/qq_41664845/article/details/84969266 
+
 + 概率图模型 & HMM & CRF
 
 https://zhuanlan.zhihu.com/p/55238865

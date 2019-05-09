@@ -149,6 +149,8 @@ p1 = b/(b+w),  (b+d)/(b+w+d)
 
 log4j：rootLogger输出级别，DEBUG，INFO，WARNING，ERROR，由高到低，选择性输出，输出到文件
 
+`import arpachi....log4j...`不是引用`common...`里的
+
 
 
 #### 测试
@@ -178,4 +180,47 @@ log4j：rootLogger输出级别，DEBUG，INFO，WARNING，ERROR，由高到低�
 把文字全部作为变量，对应值存在zh.CN.properties，en.US.properties中，可以同一逻辑，各自语言
 
 
+
+## Mybaties
+
+utf-8 --- utf8-generate-ci
+
+数据库连接都是通过网络连接的
+
+当多个客户端访问数据库时，（Oracle默认20），当连接的进程句柄装载在连接池中，超过的将被拒绝。用完访问后需要close。
+
+连接池：原先每次访问，需要分配资源需要耗时，现在直接取连接池的已经访问DB的资源，类似进程池，无需创建和释放。数据源中设置：UNPOOLED,POOLED,JDNI
+
+
+
+**基本要素** sqlMapConfig.xml 全局配置文件，Mapper.xml 核心映射文件，SqlSessionFactory 接口
+
+
+
+jar包 ： MyBatis Spring Maven; 
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--通过这个配置文件，完成mybatis与数据库的连接  -->
+<configuration>
+    <!-- 注意此配置文件内的元素的  -->
+    <!-- 引入database.properties文件 -->
+    <properties resource="database.properties"/>
+    <!--配置mybatis的log实现为LOG4J  -->
+    <!-- 配置后，后台就会有sql
+    
+    
+    SqlMapConfig.xml
+    
+    
+driver=com.mysql.cj.jdbc.Driver
+url=jdbc:mysql://localhost:3306/world?characterEncoding=utf-8&serverTimezone=GMT%2B8
+username=root
+password=123456
+
+database.properties
+```
 

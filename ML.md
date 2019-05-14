@@ -1,4 +1,4 @@
-## NLP
+﻿## NLP
 
 + word2vec : https://www.bilibili.com/video/av41393758/?p=2
 
@@ -33,7 +33,7 @@ center word （one hot * matrix）, context(word2vec)
 只关注词义，词的位置可以忽视，即距离中心词的距离
 
 两个词越相似，点积越大 (如果用余弦函数去算的话会更好，但是更难算)
- 
+
 $ J(sita) = log (\frac {exp(u_0^T*v_c)}{\sum{exp(u_w^T*v_c)}}) $
 
 u和v一开始向量里是随机的数，小随机数，大部分目标函数非凸，初始化很重要
@@ -130,6 +130,12 @@ https://zhuanlan.zhihu.com/p/53682800
 
 这篇很全很清楚   https://blog.csdn.net/qq_41664845/article/details/84969266 
 
+时序信息通过 时序向量表示，与初始向量加和计算。
+
+补充细节： <https://zhuanlan.zhihu.com/p/60821628?utm_source=qq&utm_medium=social&utm_oi=761286192158244864>
+
+
+
 + 概率图模型 & HMM & CRF
 
 https://zhuanlan.zhihu.com/p/55238865
@@ -178,6 +184,8 @@ https://blog.csdn.net/baimafujinji/article/details/51297802
 
 https://blog.csdn.net/stf1065716904/article/details/78450997
 
+
+
 + TF-IDF
 
 词频-逆文档频率, log(tot/cor + 1) : 提取关键词->关键词向量，找相似文章->通过关键词的簇，提取文章摘要
@@ -211,6 +219,58 @@ TODO！
 $ sigmoid(z) = \frac{1}{1+e^{-z}} $
 
 如果只是线性函数的叠加， 
+
++ 正则化
+
+防止过拟合，往一个方向上收缩，L1正则化，L2正则化
+
+reference: https://blog.csdn.net/red_stone1/article/details/80755144
+
++ 数据白化
+
+  reference: https://www.zhihu.com/question/49385441/answer/115737855?utm_source=qq&utm_medium=social&utm_oi=761286192158244864
+
+  reference: [http://ufldl.stanford.edu/wiki/index.php/%E7%99%BD%E5%8C%96#.E4.B8.AD.E6.96.87.E8.AF.91.E8.80.85](http://ufldl.stanford.edu/wiki/index.php/白化#.E4.B8.AD.E6.96.87.E8.AF.91.E8.80.85)
+
+  在PCA之前规范数据的操作，目标使特征之间的相关性较低，使所有特征具有相同的方差。
+
+  用于处理图像，剔除冗余信息。
+
+  1）使数据均值为0，2）构造协方差矩阵（条件1），3）除以$$\sqrt{\lambda_i}$$ （条件2），4）如果特征值接近0，除了会导致数据上溢，适当正则化除以$$\sqrt{\lambda_i + e}$$
+
++ 规范化
+
+  $h_i = f(a_i)$
+
+  $h^'_i = f(\frac{u}{v}(a_i-u_i)+b_i)$
+
+  用均值和方差进行分布调整，使激活值落入梯度敏感区间，训练速度加快；每一次数据调整为相同分布，消除极端值，提升训练稳定性
+
++ WT只能在同一个词表下做，如果encoder和decoder共享词表，那么encoder的输入，decoder的输入和输出，设成一致；否则只能在decoder的输入和输出做。如果输入和输出维度不同，那么这两个矩阵的语义肯定不强相关，做不了WT
+
++ 负采样
+
+  reference: [https://baike.baidu.com/item/%E8%B4%9F%E9%87%87%E6%A0%B7/22884020?fr=aladdin](https://baike.baidu.com/item/负采样/22884020?fr=aladdin)
+
+  正样本，生成上下文无关的词，负样本，类似于随机从词表中选词
+
+  使用负采样，把正例和负例进行二分类。训练前向
+
+  训练词向量模型的目标不是为了得到一个多么精准的语言模型，而是为了获得它的副产物——词向量。
+
++ BERT
+
+  Bidirectional Encoder Representation from Transformers
+
+  把下游具体NLP任务的活逐渐移到预训练产生词向量上
+
+  结果：上下文无关的static向量变成上下文相关的dynamic向量，比如苹果在不同语境vector不同。
+
+  操作：encoder操作转移到预训练产生词向量过程实现。
+
+  **训练出的word-level向量变成sentence-level的向量**
+
+  
 
 + markdown 公式
 

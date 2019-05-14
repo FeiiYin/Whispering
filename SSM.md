@@ -1,4 +1,4 @@
-## catalog
+﻿## catalog
 
 ssm（spring，springMVC，MyBatis（持久化层））
 
@@ -147,9 +147,11 @@ p1 = b/(b+w),  (b+d)/(b+w+d)
 
 #### 库
 
-log4j：rootLogger输出级别，DEBUG，INFO，WARNING，ERROR，由高到低，选择性输出，输出到文件
++ log4j：rootLogger输出级别，DEBUG，INFO，WARNING，ERROR，由高到低，选择性输出，输出到文件
 
 `import arpachi....log4j...`不是引用`common...`里的
+
++ pagehelper
 
 
 
@@ -224,3 +226,80 @@ password=123456
 database.properties
 ```
 
+
+
+`<set>`可以把语句中多余逗号去除
+
+`<where>`可以把里面的`and`多余去掉
+
+
+
++ 指向redis集群，让缓存数据一直存在，即使mybatis关闭
+
+
+
++ 一级缓存&二级缓存
+
+  需要`session.commit();`
+
+  二级缓存，协调不同的缓存速度
+
+## MySql
+
+select * from X limit 40, 10
+
+pagehelper/5.1.8
+
+## SpringMVC
+
+http:\\localhost:8080/taobao/dir......
+
+端口为 80 为HTTP默认端口，绑定它可以不输入端口号
+
+MVC - Model-View-Controller
+
++ Model（模型）表示应用程序核心（比如数据库记录列表）。
+
++ View（视图）显示数据（数据库记录）。
+
++ Controller（控制器）处理输入（写入数据库记录）。
+
+MVC 模式同时提供了对 HTML、CSS 和 JavaScript 的完全控制。
+
+Model（模型）是应用程序中用于处理应用程序数据逻辑的部分。
+　　通常模型对象负责在数据库中存取数据。
+
+View（视图）是应用程序中处理数据显示的部分。
+
+
+　　通常视图是依据模型数据创建的。
+Controller（控制器）是应用程序中处理用户交互的部分。
+　　通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。
+
+REST（当前流行）： 模式，把请求通过url展示出来，比如 ?id=1001:size=1  =>  /id/1001/size/1
+
+web.xml 是所有网站的入口  （servlet，servletmapping（"/"所有请求，进行统一处理））
+
+<load-on-startup> 表示servlet的启动顺序
+
+servlet-mapping 中表示拦截所有请求 ：<url-pattern> *.form</url-pattern> 改成 <url-pattern> /</url-pattern> 
+
+settings-> application servers 配置
+
+add configruation
+
+
+
+包导入的正确性很重要
+
+
+
+---
+
+## 问题
+
+reference: <https://www.cnblogs.com/hfblogs/p/5345497.html>
+
+`<association> <collection>` 需要在对应的类中包括对应的属性，不然会提示ambiguous
+
+一对一，一对多，多对多  https://blog.csdn.net/qq_42780864/article/details/81429114

@@ -270,7 +270,7 @@ reference: https://blog.csdn.net/red_stone1/article/details/80755144
 
   **训练出的word-level向量变成sentence-level的向量**
 
-  
+  reference: https://www.cnblogs.com/rucwxb/p/10277217.html
 
 + markdown 公式
 

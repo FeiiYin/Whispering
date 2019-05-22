@@ -242,7 +242,7 @@ reference: https://blog.csdn.net/red_stone1/article/details/80755144
 
   $h_i = f(a_i)$
 
-  $h^'_i = f(\frac{u}{v}(a_i-u_i)+b_i)$
+  $ h^{'}_i = f( \frac{u}{v}(a_i-u_i)+b_i) $
 
   用均值和方差进行分布调整，使激活值落入梯度敏感区间，训练速度加快；每一次数据调整为相同分布，消除极端值，提升训练稳定性
 

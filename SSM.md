@@ -303,3 +303,33 @@ reference: <https://www.cnblogs.com/hfblogs/p/5345497.html>
 `<association> <collection>` 需要在对应的类中包括对应的属性，不然会提示ambiguous
 
 一对一，一对多，多对多  https://blog.csdn.net/qq_42780864/article/details/81429114
+
+
+
+---
+
+request 在一次连接之后就消失了
+
+session 存储登录消息，一般维护时间为半小时，每一次request重新计时，让sessionID在response返回，并在之后登录之后由request发送至服务器
+
+contacts对象在服务器一直存在，直到网站关闭，存储网站的整体配置，提示信息，不适合频繁调度
+
+page生命周期最短，相当于成员变量，请求转发不会到下一个页面上
+
+return “a.jsp”实际是请求转发
+
+
+
+DTO 是继承了 bean类后，还包含其他额外功能属性的类，可以直接替代bean进行传递交互
+
+`SimpleDateFormat ("yyyy-MM-dd HH:mm:ss")` 时间转换
+
+`simpleDataFormat.format(new Date())`
+
+选择`java.util.date`， `org.springframework.core.convert...`
+
+配置
+
+![1557887635928](C:\Users\dell\AppData\Roaming\Typora\typora-user-images\1557887635928.png)
+
+ServiceFactoryBean

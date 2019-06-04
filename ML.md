@@ -4,7 +4,7 @@
 
 english - wordNet 语言的分类信息，像个python的词典库，可以做校验
 
-one-hot [0 1 0 ... 0 ]
+one-hot [0 1 0 ... 0]
 
 distribution similarity 通过上下文获取一个词的大量的值，关于词汇语义
 
@@ -12,13 +12,13 @@ distribution similarity 通过上下文获取一个词的大量的值，关于�
 
 损失函数：本质让每个词向量能够预测其周围的词汇，反之亦然（vice versa）
 
-$ w_-t $ 上下文除了t的词
+$ w_{-t} $ 上下文除了t的词
 
 skip-gram：定义一个概率分布，给定一个中心词汇，某个单词在它上下文中出现的概率
 
 连乘 \Pai
 
-$ j (i) = \prod_{position}  \prod_{-r to r} P (w_t|w_j) $
+$ j (i) = \prod_{position}  \prod_{-r ~ r} P (w_t|w_j) $
 
 取log 转为求和 -> 每个词的概率乘积 to 每个词预测概率log取平均 归一化处理
 
@@ -174,15 +174,15 @@ https://blog.csdn.net/u013802188/article/details/40348587
 
 https://blog.csdn.net/baimafujinji/article/details/51297802
 
-平滑加的分母 V， V  是所有的可能的不同的n-Gram的数量，在这个例子中，它其实就是语料库中的词汇量，而这个词汇量是不包括 <s> 的，但却需要包括 </s>。
+平滑加的分母 V， V  是所有的可能的不同的n-Gram的数量，在这个例子中，它其实就是语料库中的词汇量，而这个词汇量是不包括 <s>的，但却需要包括 </s>。
 
-插值：Pinterp(wn|wn−2,wn−1)=λ1P(wn)+λ2P(wn|wn−1)+λ3P(wn|wn−2,wn−1)
+插值：$Pinterp(wn|wn−2,wn−1)=λ1P(wn)+λ2P(wn|wn−1)+λ3P(wn|wn−2,wn−1)$
 
 + 上采样 & 下采样
 
 上采样：利用插值放大图像； 下采样，直接取区域内的平均像素值，缩小图像；
 
-https://blog.csdn.net/stf1065716904/article/details/78450997
+<https://blog.csdn.net/stf1065716904/article/details/78450997>
 
 
 
@@ -191,8 +191,6 @@ https://blog.csdn.net/stf1065716904/article/details/78450997
 词频-逆文档频率, log(tot/cor + 1) : 提取关键词->关键词向量，找相似文章->通过关键词的簇，提取文章摘要
 
 https://www.cnblogs.com/cppb/p/5976266.html
-
-+ 协方差矩阵
 
 + BPE
 
@@ -223,6 +221,8 @@ $ sigmoid(z) = \frac{1}{1+e^{-z}} $
 + 正则化
 
 防止过拟合，往一个方向上收缩，L1正则化，L2正则化
+
+L2在损失函数上增加参数
 
 reference: https://blog.csdn.net/red_stone1/article/details/80755144
 
